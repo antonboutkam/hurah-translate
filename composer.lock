@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "hurah/data-types",
-            "version": "v1.0.74",
+            "version": "v1.0.77",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antonboutkam/data-types.git",
-                "reference": "d62ea877bab4173327236bfc1c0bc91330d3c858"
+                "reference": "47864aada689d5bafaeb43b640c7a8f6f7d7a0a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antonboutkam/data-types/zipball/d62ea877bab4173327236bfc1c0bc91330d3c858",
-                "reference": "d62ea877bab4173327236bfc1c0bc91330d3c858",
+                "url": "https://api.github.com/repos/antonboutkam/data-types/zipball/47864aada689d5bafaeb43b640c7a8f6f7d7a0a6",
+                "reference": "47864aada689d5bafaeb43b640c7a8f6f7d7a0a6",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             "description": "Collection of general purpose data types, corresponding collections, validators, utilities and some control statements represented by objects to allow more strict type checking",
             "support": {
                 "issues": "https://github.com/antonboutkam/data-types/issues",
-                "source": "https://github.com/antonboutkam/data-types/tree/v1.0.74"
+                "source": "https://github.com/antonboutkam/data-types/tree/v1.0.77"
             },
-            "time": "2021-12-25T20:42:55+00:00"
+            "time": "2022-01-06T11:59:12+00:00"
         },
         {
             "name": "hurah/logger",
@@ -350,7 +350,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/5.4"
+                "source": "https://github.com/symfony/finder/tree/v5.4.2"
             },
             "funding": [
                 {
@@ -370,7 +370,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "dev-main",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -385,7 +385,6 @@
             "require": {
                 "php": ">=7.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -434,7 +433,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/main"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -809,12 +808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "fd033934972daf855e062f1bf38abd3e79dd08ed"
+                "reference": "21481a5c97e8332f7279e31219c32faa2da21c79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/fd033934972daf855e062f1bf38abd3e79dd08ed",
-                "reference": "fd033934972daf855e062f1bf38abd3e79dd08ed",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/21481a5c97e8332f7279e31219c32faa2da21c79",
+                "reference": "21481a5c97e8332f7279e31219c32faa2da21c79",
                 "shasum": ""
             },
             "require": {
@@ -859,7 +858,7 @@
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
                 "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
             },
-            "time": "2021-12-21T15:04:07+00:00"
+            "time": "2021-12-27T22:36:43+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -867,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "f8ec4ab631de5a97769e66b13418c3b8b24e81f4"
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/f8ec4ab631de5a97769e66b13418c3b8b24e81f4",
-                "reference": "f8ec4ab631de5a97769e66b13418c3b8b24e81f4",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/93ebd0014cab80c4ea9f5e297ea48672f1b87706",
+                "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706",
                 "shasum": ""
             },
             "require": {
@@ -908,9 +907,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.x"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.0"
             },
-            "time": "2021-11-24T08:29:39+00:00"
+            "time": "2022-01-04T19:58:01+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -986,12 +985,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "e0c5a565a1a1f71c83f3daf228e5a25f6670299a"
+                "reference": "39df413d71278d4954ee4dfbcd0a13e8b63e1636"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e0c5a565a1a1f71c83f3daf228e5a25f6670299a",
-                "reference": "e0c5a565a1a1f71c83f3daf228e5a25f6670299a",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/39df413d71278d4954ee4dfbcd0a13e8b63e1636",
+                "reference": "39df413d71278d4954ee4dfbcd0a13e8b63e1636",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1054,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-22T13:14:58+00:00"
+            "time": "2022-01-01T08:00:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1304,12 +1303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2406855036db1102126125537adb1406f7242fdd"
+                "reference": "7f96b937437f017d60513a365defb863857d3158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2406855036db1102126125537adb1406f7242fdd",
-                "reference": "2406855036db1102126125537adb1406f7242fdd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7f96b937437f017d60513a365defb863857d3158",
+                "reference": "7f96b937437f017d60513a365defb863857d3158",
                 "shasum": ""
             },
             "require": {
@@ -1387,7 +1386,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.11"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5"
             },
             "funding": [
                 {
@@ -1399,7 +1398,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-25T07:07:57+00:00"
+            "time": "2022-01-01T08:00:33+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2367,7 +2366,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "dev-main",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -2388,7 +2387,6 @@
             "suggest": {
                 "ext-ctype": "For best performance"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2430,7 +2428,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/main"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
             },
             "funding": [
                 {

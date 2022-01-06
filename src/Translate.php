@@ -35,7 +35,6 @@ final class Translate
     public function string(string $sString, Locale $oLanguageTo, ?string $sTemplate = null): string
     {
         $oTemplatePath = new TemplatePath($this->oPathManager->getTemplateRoot(), $sTemplate);
-        $oTemplatePath->getPath();
 
         $oLocaleFile = $this->getLocaleFile($oLanguageTo, $sTemplate);
         if (!$oLocaleFile->hasTranslation($sString))
@@ -69,6 +68,7 @@ final class Translate
     private function getLocaleFile(Locale $oLocale, ?string $sTemplate = null): LocaleFile
     {
         $this->oLogger->debug("Read locale file", ['translate']);
+
         return new LocaleFile($oLocale, $this->oPathManager->getTranslationRoot(), $sTemplate);
     }
 

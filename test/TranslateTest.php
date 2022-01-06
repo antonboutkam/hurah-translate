@@ -94,6 +94,13 @@ class TranslateTest extends TestCase
         $sTemplate = 'Projects/Project/page.twig';
         $sTranslatedText = $this->oSiteTranslate->string($sInputText, $oToLanguage, $sTemplate);
         $this->assertEquals($sInputText, $sTranslatedText);
+
+        $oToLanguage = new Locale('nl_NL');
+        $sInputText = 'Translated text 2';
+        $sTemplate = 'layout.twig';
+        $sTranslatedText = $this->oSiteTranslate->string($sInputText, $oToLanguage, $sTemplate);
+        $this->assertEquals($sInputText, $sTranslatedText);
+
     }
 
     private function getMutualPath(): Path
@@ -120,6 +127,7 @@ class TranslateTest extends TestCase
             'Modules'
         ];
     }
+
 
     /**
      * @throws InvalidArgumentException

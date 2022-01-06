@@ -6,9 +6,7 @@ use Hurah\Translate\Type\Language\Locale;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Type\Path;
 use Hurah\Types\Util\JsonUtils;
-use function explode;
-use function var_dump;
-use const DIRECTORY_SEPARATOR;
+use function count;
 
 final class LocaleFile
 {
@@ -17,9 +15,9 @@ final class LocaleFile
     private Locale $oLocale;
 
     /**
-     * @param string $sTemplate
-     * @param TranslationRoot $oTranslationRoot
      * @param Locale $oLocale
+     * @param TranslationRoot $oTranslationRoot
+     * @param string|null $sTemplate
      *
      * @throws InvalidArgumentException
      */
@@ -30,23 +28,42 @@ final class LocaleFile
         $this->oLocale = $oLocale;
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function hasTranslation(string $sString): bool
     {
         $aTranslation = $this->toArray();
         return isset($aTranslation[$sString]);
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function getTranslation(string $sString): string
     {
         $aTranslation = $this->toArray();
         return $aTranslation[$sString] ?? $sString;
     }
 
-    public function getLocaleDir():Path
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function getLocaleDir(): Path
     {
-        $oFirstLevel = $this->oTemplate->slice(0, 1);
-        return $this->oTranslationRoot->getPath()->extend($oFirstLevel, 'Locales')->makeDir();
+        $aExtend = [];
+        if (count($this->oTemplate->explode()) > 1)
+        {
+            $aExtend[] = $this->oTemplate->slice(0, 1);
+        }
+        $aExtend[] = 'Locales';
+
+        return $this->oTranslationRoot->getPath()->extend($aExtend)->makeDir();
     }
+
+    /**
+     * @throws InvalidArgumentException
+     */
     public function getPath(): Path
     {
         return $this->getLocaleDir()->extend("$this->oLocale.json");
@@ -77,7 +94,11 @@ final class LocaleFile
         }
         return [];
     }
-    public function __toString():string
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function __toString(): string
     {
         return "{$this->getPath()}";
     }
