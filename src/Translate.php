@@ -41,7 +41,7 @@ final class Translate
         {
             $this->addKey($sString, $sTemplate);
         }
-        $this->oLogger->debug("Get translation {$sString} from {$oLocaleFile}", ['translate']);
+        // $this->oLogger->debug("Get translation {$sString} from {$oLocaleFile}", ['translate']);
         return $oLocaleFile->getTranslation($sString);
     }
 
@@ -67,8 +67,6 @@ final class Translate
      */
     private function getLocaleFile(Locale $oLocale, ?string $sTemplate = null): LocaleFile
     {
-        $this->oLogger->debug("Read locale file", ['translate']);
-
         return new LocaleFile($oLocale, $this->oPathManager->getTranslationRoot(), $sTemplate);
     }
 
