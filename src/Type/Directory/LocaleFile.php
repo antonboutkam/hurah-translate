@@ -59,7 +59,12 @@ final class LocaleFile
         }
         $aExtend[] = 'Locales';
 
-        return $this->oTranslationRoot->getPath()->extend($aExtend)->makeDir();
+        $oLocaleDir = $this->oTranslationRoot->getPath()->extend($aExtend);
+        if(!$oLocaleDir->isDir())
+        {
+            $oLocaleDir->makeDir();
+        }
+        return $oLocaleDir;
     }
 
     /**
