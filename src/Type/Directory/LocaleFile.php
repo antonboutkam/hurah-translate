@@ -2,6 +2,7 @@
 
 namespace Hurah\Translate\Type\Directory;
 
+use DateTime;
 use Hurah\Translate\Type\Language\Locale;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Type\Path;
@@ -79,7 +80,7 @@ final class LocaleFile
         {
             $aNewTranslation = $aCurrentTranslation;
             $aNewTranslation[$sKey] = $sKey;
-            $this->getPath()->write(JsonUtils::encode($aNewTranslation));
+            $this->writeJson($aNewTranslation, __METHOD__);
         }
     }
 
@@ -115,8 +116,25 @@ final class LocaleFile
         $aCurrentTranslation = $this->toArray();
         $aNewTranslation = $aCurrentTranslation;
         $aNewTranslation[$sKey] = $sTranslation;
+        $this->writeJson($aNewTranslation, __METHOD__);
+    }
+
+    private function writeJson(array $aTranslation, string $sOrigin = null):void
+    {
+        $oDateTime = new DateTime();
+        $oDateTime->setTimestamp(time());
+
+        $iCount = $aTranslation['_meta']['count'] ?? 0;
         $options = JSON_PRETTY_PRINT;
-        $this->getPath()->write(JsonUtils::encode($aNewTranslation, $options));
+        $aTranslation['_meta'] = [
+            'origin' => $sOrigin,
+            'update' => [
+                'time' => $oDateTime->format('H:i:s'),
+                'date' => $oDateTime->format('Y-m-d')
+            ],
+            'count' => $iCount + 1
+        ];
+        $this->getPath()->write(JsonUtils::encode($aTranslation, $options));
     }
 
 }
