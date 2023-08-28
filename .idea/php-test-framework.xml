@@ -6,6 +6,7 @@
         <cache>
           <versions>
             <info id="Local" version="9.5.10" />
+            <info id="Local/home/anton/Documents/sites/hurah-translate/vendor/autoload.php" version="9.5.11" />
           </versions>
         </cache>
       </tool>

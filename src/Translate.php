@@ -34,8 +34,6 @@ final class Translate
      */
     public function string(string $sString, Locale $oLanguageTo, ?string $sTemplate = null): string
     {
-        $oTemplatePath = new TemplatePath($this->oPathManager->getTemplateRoot(), $sTemplate);
-
         $oLocaleFile = $this->getLocaleFile($oLanguageTo, $sTemplate);
         if (!$oLocaleFile->hasTranslation($sString))
         {
@@ -58,12 +56,16 @@ final class Translate
         }
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function set(string $sSampleText, string $sSampleTextNl, Locale $oToLanguage)
     {
         $this->getLocaleFile($oToLanguage)->set($sSampleText, $sSampleTextNl);
     }
 
     /**
+     * @throws InvalidArgumentException
      */
     private function getLocaleFile(Locale $oLocale, ?string $sTemplate = null): LocaleFile
     {

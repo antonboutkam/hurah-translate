@@ -5,7 +5,6 @@ namespace Hurah\Translate\Type\Directory;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Exception\NullPointerException;
 use Hurah\Types\Type\Path;
-use function var_dump;
 
 
 class TemplatePath

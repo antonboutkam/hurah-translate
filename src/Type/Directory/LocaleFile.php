@@ -115,7 +115,8 @@ final class LocaleFile
         $aCurrentTranslation = $this->toArray();
         $aNewTranslation = $aCurrentTranslation;
         $aNewTranslation[$sKey] = $sTranslation;
-        $this->getPath()->write(JsonUtils::encode($aNewTranslation));
+        $options = JSON_PRETTY_PRINT;
+        $this->getPath()->write(JsonUtils::encode($aNewTranslation, $options));
     }
 
 }
