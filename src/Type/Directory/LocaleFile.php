@@ -13,7 +13,7 @@ final class LocaleFile
     private Path $oTemplate;
     private TranslationRoot $oTranslationRoot;
     private Locale $oLocale;
-    private static array $aLoadedTranslation = [];
+    private array $aLoadedTranslation = [];
 
     /**
      * @param Locale $oLocale
@@ -95,16 +95,16 @@ final class LocaleFile
     public function toArray(bool $bForceFromDisk = false): array
     {
         $sLocaleKey = "{$this->oLocale}";
-        if(!$bForceFromDisk && isset(self::$aLoadedTranslation["$sLocaleKey"]))
+        if(!$bForceFromDisk && isset($this->aLoadedTranslation["$sLocaleKey"]))
         {
-            return self::$aLoadedTranslation["$sLocaleKey"];
+            return $this->aLoadedTranslation["$sLocaleKey"];
         }
         $oPath = $this->getPath();
         if ($oPath->exists())
         {
             $oFile = $oPath->getFile();
             $oJson = $oFile->asJson();
-            self::$aLoadedTranslation["$sLocaleKey"] = $oJson->toArray();
+            $this->aLoadedTranslation["$sLocaleKey"] = $oJson->toArray();
             return $oPath->getFile()->asJson()->toArray();
         }
         return [];
@@ -152,7 +152,6 @@ final class LocaleFile
             'count' => $iCount + 1
         ];
         $this->getPath()->write(JsonUtils::encode($aTranslation, $options));
-        self::$aLoadedTranslation = [];
+        $this->aLoadedTranslation = [];
     }
-
 }
