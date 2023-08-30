@@ -52,7 +52,11 @@ final class Translate
         {
             $oLocaleFile = $this->getLocaleFile($oLocale, $sTemplate);
             $this->oLogger->info("Adding $sString to $oLocaleFile", ['translate']);
-            $oLocaleFile->addKey($sString);
+            if(!$oLocaleFile->hasTranslation($sString))
+            {
+                $oLocaleFile->addKey($sString);
+            }
+
         }
     }
 

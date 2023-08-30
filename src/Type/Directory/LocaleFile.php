@@ -7,13 +7,13 @@ use Hurah\Translate\Type\Language\Locale;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Type\Path;
 use Hurah\Types\Util\JsonUtils;
-use function count;
 
 final class LocaleFile
 {
     private Path $oTemplate;
     private TranslationRoot $oTranslationRoot;
     private Locale $oLocale;
+    private static array $aLoadedTranslation = [];
 
     /**
      * @param Locale $oLocale
@@ -92,11 +92,20 @@ final class LocaleFile
     /**
      * @throws InvalidArgumentException
      */
-    public function toArray(): array
+    public function toArray(bool $bForceFromDisk = false): array
     {
-        if ($this->getPath()->exists())
+        $sLocaleKey = "{$this->oLocale}";
+        if(!$bForceFromDisk && isset(self::$aLoadedTranslation["$sLocaleKey"]))
         {
-            return $this->getPath()->getFile()->asJson()->toArray();
+            return self::$aLoadedTranslation["$sLocaleKey"];
+        }
+        $oPath = $this->getPath();
+        if ($oPath->exists())
+        {
+            $oFile = $oPath->getFile();
+            $oJson = $oFile->asJson();
+            self::$aLoadedTranslation["$sLocaleKey"] = $oJson->toArray();
+            return $oPath->getFile()->asJson()->toArray();
         }
         return [];
     }
@@ -124,6 +133,9 @@ final class LocaleFile
         $this->writeJson($aNewTranslation, __METHOD__);
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     private function writeJson(array $aTranslation, string $sOrigin = null):void
     {
         $oDateTime = new DateTime();
@@ -140,6 +152,7 @@ final class LocaleFile
             'count' => $iCount + 1
         ];
         $this->getPath()->write(JsonUtils::encode($aTranslation, $options));
+        self::$aLoadedTranslation = [];
     }
 
 }
