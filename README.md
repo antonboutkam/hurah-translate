@@ -61,3 +61,5 @@ $language = new Language($systemRoot, $translationRoot);
 $language->translate($templateName, $stringToTranslate);
 
 ```
+
+[![antonboutkam](https://circleci.com/gh/antonboutkam/hurah-translate.svg?style=svg)](https://antonboutkam.nl)
